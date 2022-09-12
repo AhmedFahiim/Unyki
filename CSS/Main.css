@@ -121,7 +121,7 @@ a {
 /* Start Header */
 header {
   background-color: white;
-  padding-top: 20px;
+  padding: 15px 0;
 }
 header .container {
   display: flex;
@@ -245,9 +245,6 @@ nav > ul > :nth-child(4):hover ul {
     padding: 10px;
   }
   /* Mega List */
-  nav > ul > :nth-child(4) ul img {
-    display: none;
-  }
   nav > ul > :nth-child(4) ul .links {
     flex-basis: 100%;
   }
@@ -256,6 +253,14 @@ nav > ul > :nth-child(4):hover ul {
     padding: 5px;
     text-align: center;
     justify-content: space-evenly;
+  }
+}
+@media (max-width: 991px) {
+  nav > ul > :nth-child(4) ul img {
+    display: none;
+  }
+  nav > ul > :nth-child(4) ul .links {
+    flex-basis: 100%;
   }
 }
 /* end header */
@@ -298,6 +303,7 @@ nav > ul > :nth-child(4):hover ul {
 .landing .container img {
   position: relative;
   height: 350px;
+  max-width: 100%;
   animation: up-and-down 3s infinite alternate linear;
 }
 @keyframes up-and-down {
@@ -343,19 +349,30 @@ nav > ul > :nth-child(4):hover ul {
   .landing::after {
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 90%);
   }
-  .landing .container img {
-    display: none;
-  }
-  .landing .container .text-box {
-    flex-basis: 100%;
-    text-align: center;
-  }
   .landing .container .text-box h3 {
     font-size: 25px;
   }
-
   .landing .container .text-box p {
     color: black;
+  }
+  .landing i {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .landing::after {
+    background-color: transparent;
+  }
+  .landing .container {
+    flex-direction: column;
+  }
+  .landing .container img {
+    order: -1;
+    margin-bottom: 40px;
+    animation: none;
+  }
+  .landing .container .text-box {
+    text-align: center;
   }
 }
 /* end landing */
@@ -1620,7 +1637,7 @@ footer .box.four .img-container img {
   background-color: #222;
   padding: 40px;
 }
-.by-me span {
+.by-me a {
   color: var(--main-color);
   font-weight: bold;
 }
